@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://twp4e1og5qa0"]
+
+[ext_resource type="Script" uid="uid://d2reluyynsm70" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://ct6yeyur63h6i" path="res://scenes/animation_player.tscn" id="2_lnu2h"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_yqjtg")
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("2_lnu2h")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_right = 0.378
+anchor_bottom = 0.248
+offset_right = -0.456024
+offset_bottom = 0.29599
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="poop" from="AnimationPlayer" to="." method="_on_animation_player_poop"]

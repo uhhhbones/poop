@@ -1,0 +1,129 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct6yeyur63h6i"]
+
+[ext_resource type="Script" uid="uid://bok220kltdsol" path="res://scripts/label.gd" id="1_gvtek"]
+[ext_resource type="Script" uid="uid://u3yk3tfft1kk" path="res://scenes/game_animater.gd" id="1_vd4c5"]
+
+[sub_resource type="Animation" id="Animation_gvtek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Polygon2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.384189, 0.220648, 0.0999365, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Polygon2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.402985, 0.402985)]
+}
+
+[sub_resource type="Animation" id="Animation_85yba"]
+resource_name = "new_animation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.86667),
+"transitions": PackedFloat32Array(1, 0.0206173),
+"update": 0,
+"values": ["", "welcome?"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Polygon2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.384314, 0.219608, 0.0980392, 0.603922)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Polygon2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.087643, 0.0685378), Vector2(0.533459, 0.418344)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"add_poop"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vd4c5"]
+_data = {
+&"RESET": SubResource("Animation_gvtek"),
+&"new_animation": SubResource("Animation_85yba")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_vd4c5")
+}
+autoplay = "new_animation"
+script = ExtResource("1_vd4c5")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_gvtek")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(325.17, 49.6443)
+scale = Vector2(0.087643, 0.0685378)
+color = Color(0.384314, 0.219608, 0.0980392, 0.603922)
+polygon = PackedVector2Array(641, 262, 473, 264, 448, 237, 483, 194, 476, 171, 506, 150, 535, 138, 522, 106, 501, 125, 499, 92, 558, 63, 604, 115, 634, 147, 646, 170, 630, 196, 667, 214, 678, 240)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvahtgxp4iyyl"]
+
+[ext_resource type="Texture2D" uid="uid://b5dnpdnbgxmip" path="res://icon.svg" id="1_upmfi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvms0"]
+radius = 61.0328
+
+[node name="creature" type="CharacterBody2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_upmfi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -57)
+shape = SubResource("CircleShape2D_bvms0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -90.0
+offset_top = -180.0
+offset_right = 90.0
+offset_bottom = -114.0
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0] [tornado radius=5.0 freq=2.0 connected=0] [rainbow freq=0.1] creature name"
+horizontal_alignment = 1
+vertical_alignment = 1

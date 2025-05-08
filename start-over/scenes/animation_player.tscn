@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct6yeyur63h6i"]
+[gd_scene load_steps=5 format=3 uid="uid://ct6yeyur63h6i"]
 
-[ext_resource type="Script" uid="uid://bok220kltdsol" path="res://scripts/label.gd" id="1_gvtek"]
 [ext_resource type="Script" uid="uid://u3yk3tfft1kk" path="res://scenes/game_animater.gd" id="1_vd4c5"]
 
 [sub_resource type="Animation" id="Animation_gvtek"]
@@ -8,38 +7,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Label:text")
+tracks/0/path = NodePath("AnimationPlayer/Polygon2D:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [""]
+"update": 0,
+"values": [Color(0.384189, 0.220648, 0.0999365, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Polygon2D:color")
+tracks/1/path = NodePath("AnimationPlayer/Polygon2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.384189, 0.220648, 0.0999365, 1)]
+"values": [Vector2(0.402985, 0.402985)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer/Polygon2D:scale")
+tracks/2/path = NodePath("AnimationPlayer/RichTextLabel:visible_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.402985, 0.402985)]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_85yba"]
@@ -49,52 +48,52 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Label:text")
+tracks/0/path = NodePath("AnimationPlayer/Polygon2D:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.86667),
-"transitions": PackedFloat32Array(1, 0.0206173),
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": ["", "welcome?"]
+"values": [Color(0.384314, 0.219608, 0.0980392, 0), Color(0.772947, 0.480503, 0.270664, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Polygon2D:color")
+tracks/1/path = NodePath("AnimationPlayer/Polygon2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.384314, 0.219608, 0.0980392, 0.603922)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer/Polygon2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.087643, 0.0685378), Vector2(0.533459, 0.418344)]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0.666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"add_poop"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/RichTextLabel:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.96667),
+"transitions": PackedFloat32Array(1.03526, 80.5363),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vd4c5"]
@@ -110,20 +109,22 @@ libraries = {
 autoplay = "new_animation"
 script = ExtResource("1_vd4c5")
 
-[node name="Label" type="Label" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 48
+bbcode_enabled = true
+text = "<user input>"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("1_gvtek")
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(325.17, 49.6443)
-scale = Vector2(0.087643, 0.0685378)
-color = Color(0.384314, 0.219608, 0.0980392, 0.603922)
+scale = Vector2(0.533459, 0.418344)
+color = Color(0.772947, 0.480503, 0.270664, 1)
 polygon = PackedVector2Array(641, 262, 473, 264, 448, 237, 483, 194, 476, 171, 506, 150, 535, 138, 522, 106, 501, 125, 499, 92, 558, 63, 604, 115, 634, 147, 646, 170, 630, 196, 667, 214, 678, 240)

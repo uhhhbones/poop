@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="start over"
-run/main_scene="uid://ct6yeyur63h6i"
+run/main_scene="uid://twp4e1og5qa0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Messenger="*res://messenger.gd"
 
 [rendering]
 

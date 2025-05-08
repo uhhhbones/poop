@@ -16,4 +16,8 @@ func _physics_process(_delta: float) -> void:
 func _on_animation_player_poop() -> void:
 	poop += 1
 	funny_label = "[tornado] %s poops" % str(poop)
-	print("pooped")
+	print("pooped %s times" % str(poop) )
+
+
+func _on_button_pressed() -> void:
+	print("creature spawned")

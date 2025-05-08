@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://twp4e1og5qa0"]
+[gd_scene load_steps=4 format=3 uid="uid://twp4e1og5qa0"]
 
 [ext_resource type="Script" uid="uid://d2reluyynsm70" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ct6yeyur63h6i" path="res://scenes/animation_player.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dvahtgxp4iyyl" path="res://scenes/creature.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_yqjtg")
@@ -18,4 +19,35 @@ bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="first_scene" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="TabContainer/first_scene"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.385
+anchor_top = 0.825
+anchor_right = 0.615
+anchor_bottom = 0.995
+offset_left = 0.47998
+offset_top = -0.0250244
+offset_right = -0.47998
+offset_bottom = 0.0849609
+grow_horizontal = 2
+grow_vertical = 0
+text = "spawn a creature!"
+
+[node name="creature" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(873, 475)
+
 [connection signal="poop" from="AnimationPlayer" to="." method="_on_animation_player_poop"]
+[connection signal="pressed" from="TabContainer/first_scene/Button" to="." method="_on_button_pressed"]

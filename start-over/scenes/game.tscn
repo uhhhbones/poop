@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://twp4e1og5qa0"]
+[gd_scene load_steps=8 format=3 uid="uid://twp4e1og5qa0"]
 
 [ext_resource type="Script" uid="uid://d2reluyynsm70" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ct6yeyur63h6i" path="res://scenes/animation_player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dvahtgxp4iyyl" path="res://scenes/creature.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bhaax4dp534sh" path="res://scenes/bird.tscn" id="4_p57ef"]
+[ext_resource type="PackedScene" uid="uid://crqvtq5wlcup" path="res://scenes/cave.tscn" id="5_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cyt65oi68166w" path="res://scenes/fruit.tscn" id="6_gee14"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_yqjtg")
@@ -11,21 +16,28 @@ script = ExtResource("1_yqjtg")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = -1
-anchor_right = 0.378
-anchor_bottom = 0.248
-offset_right = -0.456024
-offset_bottom = 0.29599
+anchor_left = 0.052
+anchor_top = 0.148
+anchor_right = 0.332
+anchor_bottom = 0.332
+offset_left = 0.0960007
+offset_top = 0.0960007
+offset_right = -0.46402
+offset_bottom = -0.136017
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="."]
+modulate = Color(0.702717, 0.423271, 0, 1)
+self_modulate = Color(0.764706, 0.443137, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 current_tab = 0
+tabs_visible = false
 
 [node name="first_scene" type="Control" parent="TabContainer"]
 layout_mode = 2
@@ -48,6 +60,36 @@ text = "spawn a creature!"
 
 [node name="creature" parent="." instance=ExtResource("3_lnu2h")]
 position = Vector2(873, 475)
+
+[node name="bird" parent="." instance=ExtResource("4_p57ef")]
+position = Vector2(498, 255)
+
+[node name="cave" parent="." instance=ExtResource("5_u5sy4")]
+position = Vector2(649, 241)
+
+[node name="fruit" parent="." instance=ExtResource("6_gee14")]
+position = Vector2(588, 301)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 645)
+shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 1)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, 638)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1152, 327)
+rotation = 4.72112
+shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [connection signal="poop" from="AnimationPlayer" to="." method="_on_animation_player_poop"]
 [connection signal="pressed" from="TabContainer/first_scene/Button" to="." method="_on_button_pressed"]

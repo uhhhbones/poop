@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://crqvtq5wlcup"]
+
+[ext_resource type="Texture2D" uid="uid://q6anxeob22nk" path="res://assets/Start_spritesheet.png" id="1_w6v1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ads45"]
+atlas = ExtResource("1_w6v1y")
+region = Rect2(29, 4, 9, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6v1y"]
+size = Vector2(6, 4)
+
+[node name="cave" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+texture = SubResource("AtlasTexture_ads45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_w6v1y")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -2)
+gizmo_extents = 4.0

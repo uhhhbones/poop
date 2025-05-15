@@ -1,5 +1,8 @@
-res://messenger.gd
+res://scenes/creature.tscn
+res://scenes/cave.tscn
 res://scenes/game.tscn
 res://scenes/animation_player.tscn
-res://scenes/creature.tscn
+res://scenes/bird.tscn
+res://scenes/fruit.tscn
+res://scripts/creature.gd
 res://scripts/game.gd
